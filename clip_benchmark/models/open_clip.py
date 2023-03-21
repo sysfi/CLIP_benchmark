@@ -51,6 +51,8 @@ def load_open_clip(model_name: str = "ViT-B-32-quickgelu", pretrained: str = "la
     model.transformer.lproj = lproj
     model.transformer.forward = text_forward_wrapper(model.transformer)
     
+    model.ln_final = nn.LayerNorm(128)
+    
     model = model.to(device)
     tokenizer = open_clip.tokenizer.tokenize
     return model, transform, tokenizer
