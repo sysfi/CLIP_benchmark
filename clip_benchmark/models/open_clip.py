@@ -52,5 +52,5 @@ def load_open_clip(model_name: str = "ViT-B-32-quickgelu", pretrained: str = "la
     model.transformer.forward = text_forward_wrapper(model.transformer)
     
     model = model.to(device)
-    tokenizer = open_clip.get_tokenizer(model_name)
+    tokenizer = open_clip.tokenizer
     return model, transform, tokenizer
