@@ -7,5 +7,5 @@ def load_open_clip(model_name: str = "ViT-B-32-quickgelu", pretrained: str = "la
         model, dtype=torch.qint8
     )
     model = model.to(device)
-    tokenizer = open_clip.get_tokenizer(model_name)
+    tokenizer = open_clip.tokenizer.tokenize
     return model, transform, tokenizer
